@@ -18,7 +18,7 @@ WISDOM_QUOTES = [
     "Perfection is not just about control. It is also about letting go.",
 ]
 
-def wrap_text(text, max_width=50):
+def wrap_text(text, max_width=40):
     """Wrap text to a maximum width, breaking at word boundaries."""
     words = text.split()
     lines = []
@@ -36,21 +36,25 @@ def wrap_text(text, max_width=50):
     if current_line:
         lines.append(' '.join(current_line))
     
-    return lines
+    return '\n'.join(lines)
 
 def cowsay(text):
     """Generate cowsay ASCII art with the given text."""
-    # Wrap long lines
-    wrapped_lines = wrap_text(text, max_width=50)
-    max_len = max(len(line) for line in wrapped_lines) if wrapped_lines else 0
-    width = max_len + 2
+    lines = text.split('\n')
+    max_len = max(len(line) for line in lines) if lines else 0
+    width = max_len
     
     result = []
     result.append(' ' + '_' * (width + 2))
     
-    for line in wrapped_lines:
+    for i, line in enumerate(lines):
+        is_first = (i == 0)
+        
+        left = '/' if is_first else '|'
+        right = '\\' if is_first else '|'
+        
         padded = line.ljust(max_len)
-        result.append(f'| {padded} |')
+        result.append(f'{left} {padded} {right}')
     
     result.append(' ' + '-' * (width + 2))
     result.append('        \\   ^__^')
