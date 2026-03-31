@@ -85,8 +85,14 @@
     }
 
     .item-title {
-      color: #ddd;
-      font-weight: 500;
+      color: #e8e8e8;
+      font-weight: 600;
+    }
+
+    .item-role {
+      color: #777;
+      font-style: italic;
+      font-size: 0.88rem;
     }
 
     .item-detail {
@@ -94,12 +100,25 @@
       font-size: 0.92rem;
     }
 
+    .accent {
+      color: #8bb4e0;
+    }
+
+    .highlight {
+      color: #c9a86c;
+    }
+
     .competition-line {
       margin-bottom: 6px;
     }
 
-    .competition-line span {
-      color: #666;
+    .competition-line .result {
+      color: #c9a86c;
+      font-weight: 500;
+    }
+
+    .competition-line .platform {
+      color: #8bb4e0;
     }
 
     .timeline-entry {
@@ -113,6 +132,7 @@
       color: #555;
       flex-shrink: 0;
       min-width: 40px;
+      font-weight: 500;
     }
 
     .timeline-text {
@@ -120,14 +140,14 @@
     }
 
     .links a {
-      color: #999;
+      color: #8bb4e0;
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
     }
 
     .links a:hover {
-      border-bottom-color: #666;
+      border-bottom-color: #8bb4e0;
     }
 
     .link-row {
@@ -136,8 +156,18 @@
     }
 
     .link-label {
-      color: #555;
+      color: #666;
       margin-right: 8px;
+    }
+
+    strong {
+      color: #ddd;
+      font-weight: 600;
+    }
+
+    em {
+      color: #999;
+      font-style: italic;
     }
 
     @media (max-width: 600px) {
@@ -168,15 +198,15 @@
 
     <section>
       <h2>about</h2>
-      <p>I'm a high school student from Romania.</p>
-      <p>I do machine learning, competitive programming, and side projects. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.</p>
-      <p>Lately, I've been focusing more on AI — both individually and through initiatives like clubs, events, and educational work.</p>
+      <p>I'm a high school student from <strong>Romania</strong>.</p>
+      <p>I do <strong>machine learning</strong>, <strong>competitive programming</strong>, and side projects. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.</p>
+      <p>Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work.</p>
     </section>
 
     <section>
       <h2>currently</h2>
       <ul>
-        <li>Preparing for IOAI / CEOAI</li>
+        <li>Preparing for <strong>IOAI / CEOAI</strong></li>
         <li>Building things in AI and education</li>
         <li>Getting better at machine learning through projects and competitions</li>
       </ul>
@@ -186,7 +216,7 @@
       <h2>work</h2>
       <div class="item">
         <div class="item-title">YouniHack</div>
-        <div class="item-detail">Organized a 24h cybersecurity event (CTF + attack & defense), with 150+ participants</div>
+        <div class="item-detail">Organized a 24h cybersecurity event <em>(CTF + attack & defense)</em>, with <span class="accent">150+ participants</span></div>
         <div class="item-detail">Designed problems and led technical coordination</div>
       </div>
       <div class="item">
@@ -195,12 +225,12 @@
         <div class="item-detail">Handled deployment and system reliability</div>
       </div>
       <div class="item">
-        <div class="item-title">AI Club (Founder)</div>
+        <div class="item-title">AI Club <span class="item-role">(Founder)</span></div>
         <div class="item-detail">Founded and led a school AI club</div>
-        <div class="item-detail">>80% of members qualified for ONIA / ROAI</div>
+        <div class="item-detail"><span class="accent">>80%</span> of members qualified for ONIA / ROAI</div>
       </div>
       <div class="item">
-        <div class="item-title">Limitless EDU (Instructor)</div>
+        <div class="item-title">Limitless EDU <span class="item-role">(Instructor)</span></div>
         <div class="item-detail">Teaching informatics and mentoring students for olympiads</div>
       </div>
     </section>
@@ -208,7 +238,7 @@
     <section>
       <h2>experience</h2>
       <div class="item">
-        <div class="item-title">Generative AI Intern — AQUASoft</div>
+        <div class="item-title">Generative AI Intern <span class="item-role">— AQUASoft</span></div>
         <div class="item-detail">Worked on LLM-based systems using OpenAI APIs and local models</div>
         <div class="item-detail">Built pipelines integrating speech recognition and language models</div>
       </div>
@@ -216,16 +246,16 @@
 
     <section>
       <h2>competitions</h2>
-      <div class="competition-line">2025 — ONIA (pre-split; now ROAI track) — <span>Gold</span></div>
-      <div class="competition-line">2025 — ONI — <span>Silver</span></div>
-      <div class="competition-line">2025 — ONIA Winter Challenge — <span>3rd place</span></div>
-      <div class="competition-line">Codeforces — <span>Candidate Master</span></div>
-      <div class="competition-line">USACO — <span>Gold Division</span></div>
+      <div class="competition-line">2025 — ONIA <em>(pre-split; now ROAI track)</em> — <span class="result">Gold</span></div>
+      <div class="competition-line">2025 — ONI — <span class="result">Silver</span></div>
+      <div class="competition-line">2025 — ONIA Winter Challenge — <span class="result">3rd place</span></div>
+      <div class="competition-line" style="margin-top: 16px;"><span class="platform">Codeforces</span> — <span class="result">Candidate Master</span></div>
+      <div class="competition-line"><span class="platform">USACO</span> — <span class="result">Gold Division</span></div>
     </section>
 
     <section>
       <h2>contributions</h2>
-      <p>Contributor and problem proposer for the ONIA platform</p>
+      <p>Contributor and problem proposer for the <strong>ONIA platform</strong></p>
     </section>
 
     <section>
@@ -236,19 +266,19 @@
       </div>
       <div class="timeline-entry">
         <span class="timeline-year">2025</span>
-        <span class="timeline-text">ONIA Gold, ONI Silver, ONIA Winter Challenge 3rd place</span>
+        <span class="timeline-text"><span class="highlight">ONIA Gold</span>, <span class="highlight">ONI Silver</span>, ONIA Winter Challenge 3rd place</span>
       </div>
       <div class="timeline-entry">
         <span class="timeline-year">2025</span>
-        <span class="timeline-text">Organized YouniHack</span>
+        <span class="timeline-text">Organized <strong>YouniHack</strong></span>
       </div>
       <div class="timeline-entry">
         <span class="timeline-year">2025</span>
-        <span class="timeline-text">Generative AI Intern @ AQUASoft</span>
+        <span class="timeline-text">Generative AI Intern @ <strong>AQUASoft</strong></span>
       </div>
       <div class="timeline-entry">
         <span class="timeline-year">2026</span>
-        <span class="timeline-text">Contributing to ONIA platform and preparing for IOAI / CEOAI</span>
+        <span class="timeline-text">Contributing to ONIA platform and preparing for <strong>IOAI / CEOAI</strong></span>
       </div>
     </section>
 
