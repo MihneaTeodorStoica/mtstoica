@@ -14,7 +14,7 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         if path == '/api/fortune':
             try:
                 result = subprocess.run(
-                    'nix-shell -p fortune cowsay --run "fortune | cowsay"',
+                    'nix-shell -p fortune cowsay --run "fortune wisdom | cowsay"',
                     shell=True,
                     capture_output=True,
                     text=True,
