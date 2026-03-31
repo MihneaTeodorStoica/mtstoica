@@ -318,115 +318,112 @@
   </style>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Mihnea-Teodor Stoica</h1>
-      <p>Machine learning, competitive programming, and side projects</p>
-    </header>
+  <main id="app"></main>
+  <script>
+    fetch('data.json')
+      .then(r => r.json())
+      .then(render)
+      .catch(err => {
+        document.getElementById('app').innerHTML = '<p style="color:#ff6b6b;">Failed to load site data.</p>';
+        console.error(err);
+      });
 
-    <section>
-      <h2>About</h2>
-      <p>I'm a high school student from <strong>Romania</strong>. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.</p>
-      <p>Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work.</p>
-    </section>
+    function render(data) {
+      const app = document.getElementById('app');
+      document.title = data.name;
 
-    <section>
-      <h2>Currently</h2>
-      <ul>
-        <li>Preparing for <strong>IOAI / CEOAI</strong></li>
-        <li>Building things in AI and education</li>
-        <li>Getting better at machine learning through projects and competitions</li>
-      </ul>
-    </section>
+      let html = '';
 
-    <section>
-      <h2>Work</h2>
-      <div class="item">
-        <div class="item-title">YouniHack</div>
-        <div class="item-detail">Organized a 24h cybersecurity event <em>(CTF + attack & defense)</em>, with <span class="accent">150+ participants</span></div>
-        <div class="item-detail">Designed problems and led technical coordination</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Youni Chem x AI</div>
-        <div class="item-detail">Owned the full technical stack — website, domain, and communication infrastructure</div>
-        <div class="item-detail">Handled deployment and system reliability</div>
-      </div>
-      <div class="item">
-        <div class="item-title">AI Club <span class="item-role">(Founder)</span></div>
-        <div class="item-detail">Founded and led a school AI club</div>
-        <div class="item-detail"><span class="accent">>80%</span> of members qualified for ONIA / ROAI</div>
-      </div>
-      <div class="item">
-        <div class="item-title">Limitless EDU <span class="item-role">(Instructor)</span></div>
-        <div class="item-detail">Teaching informatics and mentoring students for olympiads</div>
-      </div>
-      <div class="item">
-        <div class="item-title">ONIA Platform <span class="item-role">(Contributor)</span></div>
-        <div class="item-detail">Contributor and problem proposer</div>
-      </div>
-    </section>
+      html += `<header>
+        <h1>${esc(data.name)}</h1>
+        <p>${esc(data.tagline)}</p>
+      </header>`;
 
-    <section>
-      <h2>Experience</h2>
-      <div class="item">
-        <div class="item-title">Generative AI Intern <span class="item-role">— AQUASoft</span></div>
-        <div class="item-detail">Worked on LLM-based systems using OpenAI APIs and local models</div>
-        <div class="item-detail">Built pipelines integrating speech recognition and language models</div>
-      </div>
-    </section>
+      if (data.about && data.about.length) {
+        html += `<section><h2>About</h2>`;
+        data.about.forEach(p => { html += `<p>${p}</p>`; });
+        html += `</section>`;
+      }
 
-    <section>
-      <h2>Competitions</h2>
-      <div class="competition-grid">
-        <div class="competition-line">
-          <span class="competition-year">2025</span>
-          <span class="competition-name">ONIA <em>(pre-split; now ROAI track)</em></span>
-          <span class="result">Gold</span>
-        </div>
-        <div class="competition-line">
-          <span class="competition-year">2025</span>
-          <span class="competition-name">ONI</span>
-          <span class="result">Silver</span>
-        </div>
-        <div class="competition-line">
-          <span class="competition-year">2025</span>
-          <span class="competition-name">ONIA Winter Challenge</span>
-          <span class="result">3rd place</span>
-        </div>
-        <div class="competition-divider"></div>
-        <div class="competition-line">
-          <span class="competition-year"></span>
-          <span class="competition-name"><span class="platform">Codeforces</span></span>
-          <span class="result">Candidate Master</span>
-        </div>
-        <div class="competition-line">
-          <span class="competition-year"></span>
-          <span class="competition-name"><span class="platform">USACO</span></span>
-          <span class="result">Gold Division</span>
-        </div>
-      </div>
-    </section>
+      if (data.currently && data.currently.length) {
+        html += `<section><h2>Currently</h2><ul>`;
+        data.currently.forEach(item => { html += `<li>${item}</li>`; });
+        html += `</ul></section>`;
+      }
 
-    <section>
-      <h2>Links</h2>
-      <div class="links-grid">
-        <div class="link-row">
-          <span class="link-label">GitHub</span>
-          <a href="https://github.com/MihneaTeodorStoica">MihneaTeodorStoica</a>
-          <span class="link-arrow">→</span>
-        </div>
-        <div class="link-row">
-          <span class="link-label">Codeforces</span>
-          <a href="https://codeforces.com/profile/MihneaTeodorStoica">MihneaTeodorStoica</a>
-          <span class="link-arrow">→</span>
-        </div>
-        <div class="link-row">
-          <span class="link-label">LinkedIn</span>
-          <a href="https://www.linkedin.com/in/mihnea-teodor-stoica/">mihnea-teodor-stoica</a>
-          <span class="link-arrow">→</span>
-        </div>
-      </div>
-    </section>
-  </main>
+      if (data.work && data.work.length) {
+        html += `<section><h2>Work</h2>`;
+        data.work.forEach(w => {
+          html += `<div class="item">`;
+          html += `<div class="item-title">${esc(w.title)}`;
+          if (w.role) html += ` <span class="item-role">(${esc(w.role)})</span>`;
+          html += `</div>`;
+          w.details.forEach(d => { html += `<div class="item-detail">${d}</div>`; });
+          html += `</div>`;
+        });
+        html += `</section>`;
+      }
+
+      if (data.experience && data.experience.length) {
+        html += `<section><h2>Experience</h2>`;
+        data.experience.forEach(e => {
+          html += `<div class="item">`;
+          html += `<div class="item-title">${esc(e.title)}`;
+          if (e.organization) html += ` <span class="item-role">— ${esc(e.organization)}</span>`;
+          html += `</div>`;
+          e.details.forEach(d => { html += `<div class="item-detail">${d}</div>`; });
+          html += `</div>`;
+        });
+        html += `</section>`;
+      }
+
+      if (data.competitions) {
+        html += `<section><h2>Competitions</h2><div class="competition-grid">`;
+        if (data.competitions.results) {
+          data.competitions.results.forEach(c => {
+            html += `<div class="competition-line">`;
+            html += `<span class="competition-year">${esc(c.year || '')}</span>`;
+            html += `<span class="competition-name">${esc(c.name)}`;
+            if (c.note) html += ` <em>(${esc(c.note)})</em>`;
+            html += `</span>`;
+            html += `<span class="result">${esc(c.result)}</span>`;
+            html += `</div>`;
+          });
+        }
+        if (data.competitions.ratings && data.competitions.ratings.length) {
+          html += `<div class="competition-divider"></div>`;
+          data.competitions.ratings.forEach(r => {
+            html += `<div class="competition-line">`;
+            html += `<span class="competition-year"></span>`;
+            html += `<span class="competition-name"><span class="platform">${esc(r.platform)}</span></span>`;
+            html += `<span class="result">${esc(r.result)}</span>`;
+            html += `</div>`;
+          });
+        }
+        html += `</div></section>`;
+      }
+
+      if (data.links && data.links.length) {
+        html += `<section><h2>Links</h2><div class="links-grid">`;
+        data.links.forEach(l => {
+          html += `<div class="link-row">`;
+          html += `<span class="link-label">${esc(l.label)}</span>`;
+          html += `<a href="${esc(l.url)}">${esc(l.text)}</a>`;
+          html += `<span class="link-arrow">\u2192</span>`;
+          html += `</div>`;
+        });
+        html += `</div></section>`;
+      }
+
+      app.innerHTML = html;
+    }
+
+    function esc(str) {
+      if (!str) return '';
+      const el = document.createElement('span');
+      el.textContent = str;
+      return el.innerHTML;
+    }
+  </script>
 </body>
 </html>

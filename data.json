@@ -1,0 +1,79 @@
+{
+  "name": "Mihnea-Teodor Stoica",
+  "tagline": "Machine learning, competitive programming, and side projects",
+  "about": [
+    "I'm a high school student from <strong>Romania</strong>. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.",
+    "Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work."
+  ],
+  "currently": [
+    "Preparing for <strong>IOAI / CEOAI</strong>",
+    "Building things in AI and education",
+    "Getting better at machine learning through projects and competitions"
+  ],
+  "work": [
+    {
+      "title": "YouniHack",
+      "role": null,
+      "details": [
+        "Organized a 24h cybersecurity event <em>(CTF + attack & defense)</em>, with <span class=\"accent\">150+ participants</span>",
+        "Designed problems and led technical coordination"
+      ]
+    },
+    {
+      "title": "Youni Chem x AI",
+      "role": null,
+      "details": [
+        "Owned the full technical stack — website, domain, and communication infrastructure",
+        "Handled deployment and system reliability"
+      ]
+    },
+    {
+      "title": "AI Club",
+      "role": "Founder",
+      "details": [
+        "Founded and led a school AI club",
+        "<span class=\"accent\">>80%</span> of members qualified for ONIA / ROAI"
+      ]
+    },
+    {
+      "title": "Limitless EDU",
+      "role": "Instructor",
+      "details": [
+        "Teaching informatics and mentoring students for olympiads"
+      ]
+    },
+    {
+      "title": "ONIA Platform",
+      "role": "Contributor",
+      "details": [
+        "Contributor and problem proposer"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Generative AI Intern",
+      "organization": "AQUASoft",
+      "details": [
+        "Worked on LLM-based systems using OpenAI APIs and local models",
+        "Built pipelines integrating speech recognition and language models"
+      ]
+    }
+  ],
+  "competitions": {
+    "results": [
+      { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold" },
+      { "year": "2025", "name": "ONI", "note": null, "result": "Silver" },
+      { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "3rd place" }
+    ],
+    "ratings": [
+      { "platform": "Codeforces", "result": "Candidate Master" },
+      { "platform": "USACO", "result": "Gold Division" }
+    ]
+  },
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/MihneaTeodorStoica", "text": "MihneaTeodorStoica" },
+    { "label": "Codeforces", "url": "https://codeforces.com/profile/MihneaTeodorStoica", "text": "MihneaTeodorStoica" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/mihnea-teodor-stoica/", "text": "mihnea-teodor-stoica" }
+  ]
+}

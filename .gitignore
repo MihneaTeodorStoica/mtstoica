@@ -1,1 +1,7 @@
+# replit-specific stuff
 attached_assets/
+screenshots/
+.agents/
+.config/
+.replit
+replit.md
