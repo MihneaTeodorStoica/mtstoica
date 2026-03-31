@@ -30,13 +30,20 @@
     }
 
     main {
-      max-width: 920px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 96px 24px 140px;
     }
 
     header {
       margin-bottom: 80px;
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    header .title {
+      flex: 0 0 auto;
     }
 
     header h1 {
@@ -45,6 +52,25 @@
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 10px;
+    }
+
+    header .fortune {
+      flex: 1;
+      background: #1a1a24;
+      border: 1px solid #1e1e28;
+      border-radius: 6px;
+      padding: 12px;
+      font-size: 0.75rem;
+      color: #a6adc8;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-height: 200px;
+      overflow-y: auto;
+      min-width: 250px;
+    }
+
+    header .fortune.loading {
+      color: #6c7086;
     }
 
     header p {
@@ -335,8 +361,11 @@
       let html = '';
 
       html += `<header>
-        <h1>${esc(data.name)}</h1>
-        <p>${esc(data.tagline)}</p>
+        <div class="title">
+          <h1>${esc(data.name)}</h1>
+          <p>${esc(data.tagline)}</p>
+        </div>
+        <div class="fortune loading">Loading fortune...</div>
       </header>`;
 
       if (data.about && data.about.length) {
@@ -416,6 +445,24 @@
       }
 
       app.innerHTML = html;
+      loadFortune();
+    }
+
+    function loadFortune() {
+      const fortuneEl = document.querySelector('.fortune');
+      if (!fortuneEl) return;
+      
+      fetch('/api/fortune')
+        .then(r => r.json())
+        .then(data => {
+          fortuneEl.textContent = data.fortune;
+          fortuneEl.classList.remove('loading');
+        })
+        .catch(err => {
+          fortuneEl.textContent = 'Fortune unavailable';
+          fortuneEl.classList.remove('loading');
+          console.error(err);
+        });
     }
 
     function esc(str) {
