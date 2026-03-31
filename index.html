@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mihnea-Teodor Stoica</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #111;
+      color: #ccc;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    header {
+      margin-bottom: 72px;
+    }
+
+    header h1 {
+      color: #e8e8e8;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #777;
+      font-size: 0.95rem;
+    }
+
+    section {
+      margin-bottom: 56px;
+    }
+
+    section h2 {
+      color: #888;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-transform: lowercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #222;
+    }
+
+    section p {
+      margin-bottom: 12px;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    section ul li {
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    section ul li::before {
+      content: "–";
+      position: absolute;
+      left: 0;
+      color: #555;
+    }
+
+    .item {
+      margin-bottom: 24px;
+    }
+
+    .item-title {
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    .item-detail {
+      color: #888;
+      font-size: 0.92rem;
+    }
+
+    .competition-line {
+      margin-bottom: 6px;
+    }
+
+    .competition-line span {
+      color: #666;
+    }
+
+    .timeline-entry {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .timeline-year {
+      color: #555;
+      flex-shrink: 0;
+      min-width: 40px;
+    }
+
+    .timeline-text {
+      color: #999;
+    }
+
+    .links a {
+      color: #999;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .links a:hover {
+      border-bottom-color: #666;
+    }
+
+    .link-row {
+      margin-bottom: 6px;
+      font-size: 0.92rem;
+    }
+
+    .link-label {
+      color: #555;
+      margin-right: 8px;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 48px 20px 80px;
+      }
+
+      header {
+        margin-bottom: 56px;
+      }
+
+      header h1 {
+        font-size: 1.3rem;
+      }
+
+      section {
+        margin-bottom: 44px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>Mihnea-Teodor Stoica</h1>
+      <p>machine learning, competitive programming, and side projects</p>
+    </header>
+
+    <section>
+      <h2>about</h2>
+      <p>i'm a high school student from romania.</p>
+      <p>i do machine learning, competitive programming, and side projects. most of my time goes into olympiads, building things, and trying to understand how systems actually work.</p>
+      <p>lately, i've been focusing more on ai — both individually and through initiatives like clubs, events, and educational work.</p>
+    </section>
+
+    <section>
+      <h2>currently</h2>
+      <ul>
+        <li>preparing for IOAI / CEOAI</li>
+        <li>building things in AI and education</li>
+        <li>getting better at machine learning through projects and competitions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>work</h2>
+      <div class="item">
+        <div class="item-title">YouniHack</div>
+        <div class="item-detail">organized a 24h cybersecurity event (CTF + attack & defense), with 150+ participants</div>
+        <div class="item-detail">designed problems and led technical coordination</div>
+      </div>
+      <div class="item">
+        <div class="item-title">Youni Chem x AI</div>
+        <div class="item-detail">owned the full technical stack — website, domain, and communication infrastructure</div>
+        <div class="item-detail">handled deployment and system reliability</div>
+      </div>
+      <div class="item">
+        <div class="item-title">AI Club (Founder)</div>
+        <div class="item-detail">founded and led a school AI club</div>
+        <div class="item-detail">>80% of members qualified for ONIA / ROAI</div>
+      </div>
+      <div class="item">
+        <div class="item-title">Limitless EDU (Instructor)</div>
+        <div class="item-detail">teaching informatics and mentoring students for olympiads</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>experience</h2>
+      <div class="item">
+        <div class="item-title">Generative AI Intern — AQUASoft</div>
+        <div class="item-detail">worked on LLM-based systems using OpenAI APIs and local models</div>
+        <div class="item-detail">built pipelines integrating speech recognition and language models</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>competitions</h2>
+      <div class="competition-line">2025 — ONIA (pre-split; now ROAI track) — <span>Gold</span></div>
+      <div class="competition-line">2025 — ONI — <span>Silver</span></div>
+      <div class="competition-line">2025 — ONIA Winter Challenge — <span>3rd place</span></div>
+      <div class="competition-line" style="margin-top: 16px;">Codeforces — <span>Candidate Master</span></div>
+      <div class="competition-line">USACO — <span>Gold Division</span></div>
+    </section>
+
+    <section>
+      <h2>contributions</h2>
+      <p>contributor and problem proposer for the ONIA platform</p>
+    </section>
+
+    <section>
+      <h2>timeline</h2>
+      <div class="timeline-entry">
+        <span class="timeline-year">2024</span>
+        <span class="timeline-text">started teaching informatics</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-text">ONIA Gold, ONI Silver, ONIA Winter Challenge 3rd place</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-text">organized YouniHack</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-year">2025</span>
+        <span class="timeline-text">Generative AI Intern @ AQUASoft</span>
+      </div>
+      <div class="timeline-entry">
+        <span class="timeline-year">2026</span>
+        <span class="timeline-text">contributing to ONIA platform and preparing for IOAI / CEOAI</span>
+      </div>
+    </section>
+
+    <section class="links">
+      <h2>links</h2>
+      <div class="link-row">
+        <span class="link-label">github</span>
+        <a href="https://github.com/MihneaTeodorStoica">MihneaTeodorStoica</a>
+      </div>
+      <div class="link-row">
+        <span class="link-label">codeforces</span>
+        <a href="https://codeforces.com/profile/MihneaTeodorStoica">MihneaTeodorStoica</a>
+      </div>
+      <div class="link-row">
+        <span class="link-label">linkedin</span>
+        <a href="https://www.linkedin.com/in/mihnea-teodor-stoica/">mihnea-teodor-stoica</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
