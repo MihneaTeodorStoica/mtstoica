@@ -5,3 +5,4 @@ screenshots/
 .config/
 .replit
 replit.md
+replit.nix
