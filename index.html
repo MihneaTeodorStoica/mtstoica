@@ -43,9 +43,10 @@
     header {
       margin-bottom: 80px;
       display: grid;
-      grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+      grid-template-columns: minmax(240px, 320px) fit-content(24rem);
       gap: 28px 40px;
       align-items: start;
+      justify-content: space-between;
     }
 
     header .title {
@@ -65,7 +66,7 @@
 
     header .fortune {
       min-width: 0;
-      width: min(100%, 34rem);
+      width: min(100%, 24rem);
       justify-self: start;
       position: relative;
       background:
@@ -93,7 +94,7 @@
       scrollbar-width: thin;
       scrollbar-color: #45475a transparent;
       max-width: 100%;
-      min-height: 7.2em;
+      min-height: 5.4em;
       padding-bottom: 2px;
     }
 
