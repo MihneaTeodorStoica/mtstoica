@@ -14,7 +14,7 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         if path == '/api/fortune':
             try:
                 result = subprocess.run(
-                    'fortune wisdom | cowsay',
+                    'fortune linux | cowsay',
                     shell=True,
                     capture_output=True,
                     text=True,

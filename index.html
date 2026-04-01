@@ -28,6 +28,12 @@
       color: #cdd6f4;
     }
 
+    :root {
+      --panel-bg: #1a1a24;
+      --panel-border: #1e1e28;
+      --panel-radius: 8px;
+    }
+
     main {
       max-width: 1000px;
       margin: 0 auto;
@@ -36,34 +42,41 @@
 
     header {
       margin-bottom: 80px;
-      display: flex;
-      gap: 40px;
-      align-items: center;
+      display: grid;
+      grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+      gap: 28px 40px;
+      align-items: start;
     }
 
     header .title {
-      flex: 0 0 auto;
+      min-width: 0;
+      padding-top: 6px;
     }
 
     header h1 {
       color: #cdd6f4;
-      font-size: 1.75rem;
+      font-size: clamp(1.75rem, 1.3rem + 1vw, 2.2rem);
       font-weight: 700;
       letter-spacing: -0.03em;
       margin-bottom: 10px;
+      line-height: 1.1;
+      text-wrap: balance;
     }
 
     header .fortune {
-      flex: 1;
+      min-width: 0;
       position: relative;
-      background: #1a1a24;
-      border: 1px solid #1e1e28;
-      border-radius: 6px;
-      padding: 12px 52px 12px 12px;
-      font-size: 0.75rem;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 38%),
+        var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      border-radius: var(--panel-radius);
+      padding: 14px 54px 14px 14px;
+      font-size: clamp(0.58rem, 0.48rem + 0.5vw, 0.76rem);
+      line-height: 1.45;
       color: #a6adc8;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
     }
 
     header .fortune.loading {
@@ -72,6 +85,27 @@
 
     .fortune-content {
       display: block;
+      white-space: pre;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: #45475a transparent;
+      max-width: 100%;
+      min-height: 7.2em;
+      padding-bottom: 2px;
+    }
+
+    .fortune-content::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .fortune-content::-webkit-scrollbar-thumb {
+      background: #313244;
+      border-radius: 999px;
+    }
+
+    .fortune-content::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .fortune-refresh {
@@ -118,6 +152,7 @@
       color: #a6adc8;
       font-size: 0.9rem;
       letter-spacing: 0.01em;
+      max-width: 28ch;
     }
 
     section {
@@ -343,13 +378,22 @@
       }
 
       header {
-        flex-direction: column;
-        align-items: stretch;
+        grid-template-columns: minmax(0, 1fr);
         margin-bottom: 60px;
+        gap: 20px;
       }
 
       header h1 {
-        font-size: 1.45rem;
+        font-size: 1.55rem;
+      }
+
+      header p {
+        max-width: none;
+      }
+
+      header .fortune {
+        width: 100%;
+        padding-right: 50px;
       }
 
       section {
