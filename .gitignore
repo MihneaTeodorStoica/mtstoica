@@ -6,3 +6,6 @@ screenshots/
 .replit
 replit.md
 replit.nix
+
+# python stuff
+__pycache__/

@@ -55,10 +55,11 @@
 
     header .fortune {
       flex: 1;
+      position: relative;
       background: #1a1a24;
       border: 1px solid #1e1e28;
       border-radius: 6px;
-      padding: 12px;
+      padding: 12px 52px 12px 12px;
       font-size: 0.75rem;
       color: #a6adc8;
       white-space: pre-wrap;
@@ -67,6 +68,50 @@
 
     header .fortune.loading {
       color: #6c7086;
+    }
+
+    .fortune-content {
+      display: block;
+    }
+
+    .fortune-refresh {
+      appearance: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #313244;
+      background: rgba(24, 24, 37, 0.92);
+      color: #a6adc8;
+      border-radius: 6px;
+      padding: 0;
+      font: inherit;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .fortune-refresh svg {
+      width: 15px;
+      height: 15px;
+      display: block;
+    }
+
+    .fortune-refresh:hover:not(:disabled) {
+      border-color: #89b4fa;
+      color: #cdd6f4;
+      background: #1e1e2e;
+    }
+
+    .fortune-refresh:disabled {
+      cursor: wait;
+      color: #6c7086;
+      border-color: #1e1e28;
+      background: #161620;
     }
 
     header p {
@@ -298,6 +343,8 @@
       }
 
       header {
+        flex-direction: column;
+        align-items: stretch;
         margin-bottom: 60px;
       }
 
@@ -326,13 +373,15 @@
       .link-arrow,
       .link-row a,
       .item,
-      .competition-line {
+      .competition-line,
+      .fortune-refresh {
         transition: none;
       }
     }
 
     a:focus-visible,
-    .link-row a:focus-visible {
+    .link-row a:focus-visible,
+    .fortune-refresh:focus-visible {
       outline: 2px solid #b4befe;
       outline-offset: 2px;
       border-radius: 2px;
@@ -361,7 +410,7 @@
           <h1>${esc(data.name)}</h1>
           <p>${esc(data.tagline)}</p>
         </div>
-        <div class="fortune loading">Loading fortune...</div>
+        <div class="fortune loading"><button type="button" class="fortune-refresh" aria-label="Reload cowsay box" title="Reload cowsay box"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 5a7 7 0 0 1 6.2 3.75V6.5a1 1 0 1 1 2 0V12h-5.5a1 1 0 1 1 0-2h2.28A5 5 0 1 0 17 15a1 1 0 1 1 2 0 7 7 0 1 1-7-10Z" /></svg></button><span class="fortune-content">Loading fortune...</span></div>
       </header>`;
 
       if (data.about && data.about.length) {
@@ -441,23 +490,34 @@
       }
 
       app.innerHTML = html;
+      const refreshButton = document.querySelector('.fortune-refresh');
+      if (refreshButton) refreshButton.addEventListener('click', loadFortune);
       loadFortune();
     }
 
     function loadFortune() {
       const fortuneEl = document.querySelector('.fortune');
-      if (!fortuneEl) return;
-      
+      const fortuneContentEl = document.querySelector('.fortune-content');
+      const refreshButton = document.querySelector('.fortune-refresh');
+      if (!fortuneEl || !fortuneContentEl) return;
+
+      fortuneContentEl.textContent = 'Loading fortune...';
+      fortuneEl.classList.add('loading');
+      if (refreshButton) refreshButton.disabled = true;
+
       fetch('/api/fortune')
         .then(r => r.json())
         .then(data => {
-          fortuneEl.textContent = data.fortune;
+          fortuneContentEl.textContent = data.fortune;
           fortuneEl.classList.remove('loading');
         })
         .catch(err => {
-          fortuneEl.textContent = 'Fortune unavailable';
+          fortuneContentEl.textContent = 'Fortune unavailable';
           fortuneEl.classList.remove('loading');
           console.error(err);
+        })
+        .finally(() => {
+          if (refreshButton) refreshButton.disabled = false;
         });
     }
 
