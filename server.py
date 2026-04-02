@@ -7,7 +7,7 @@ import subprocess
 from pathlib import Path
 from urllib.parse import urlparse
 
-FORTUNE_ARGS = ['fortune', '-s', 'linux']
+FORTUNE_ARGS = ["fortune", "-s", "computers"]
 MAX_QUOTE_CHARS = 140
 MAX_RENDER_WIDTH = 28
 FALLBACK_FORTUNE = """ ________________________________
@@ -22,14 +22,14 @@ FALLBACK_FORTUNE = """ ________________________________
 
 
 def compact_quote(text):
-    normalized = re.sub(r'\s+', ' ', text).strip()
+    normalized = re.sub(r"\s+", " ", text).strip()
     if len(normalized) <= MAX_QUOTE_CHARS:
         return normalized
 
     truncated = normalized[: MAX_QUOTE_CHARS - 1]
-    if ' ' in truncated:
-        truncated = truncated.rsplit(' ', 1)[0]
-    return truncated.rstrip(' ,;:-') + '...'
+    if " " in truncated:
+        truncated = truncated.rsplit(" ", 1)[0]
+    return truncated.rstrip(" ,;:-") + "..."
 
 
 def generate_fortune():
@@ -51,7 +51,7 @@ def generate_fortune():
 
         try:
             cowsay_proc = subprocess.run(
-                ['cowsay', '-W', str(MAX_RENDER_WIDTH)],
+                ["cowsay", "-W", str(MAX_RENDER_WIDTH)],
                 input=quote,
                 capture_output=True,
                 text=True,
@@ -61,11 +61,11 @@ def generate_fortune():
         except (subprocess.CalledProcessError, subprocess.TimeoutExpired):
             continue
 
-        rendered = cowsay_proc.stdout.strip('\n')
+        rendered = cowsay_proc.stdout.strip("\n")
         if rendered:
             return rendered
 
-    return FALLBACK_FORTUNE.strip('\n')
+    return FALLBACK_FORTUNE.strip("\n")
 
 
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
@@ -73,23 +73,24 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
         parsed_path = urlparse(self.path)
         path = parsed_path.path
 
-        if path == '/api/fortune':
+        if path == "/api/fortune":
             try:
                 fortune_text = generate_fortune()
                 self.send_response(200)
-                self.send_header('Content-Type', 'application/json')
+                self.send_header("Content-Type", "application/json")
                 self.end_headers()
-                self.wfile.write(json.dumps({'fortune': fortune_text}).encode())
+                self.wfile.write(json.dumps({"fortune": fortune_text}).encode())
             except Exception as e:
                 self.send_response(500)
-                self.send_header('Content-Type', 'application/json')
+                self.send_header("Content-Type", "application/json")
                 self.end_headers()
-                self.wfile.write(json.dumps({'error': str(e)}).encode())
+                self.wfile.write(json.dumps({"error": str(e)}).encode())
         else:
             super().do_GET()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     os.chdir(Path(__file__).parent)
-    server = http.server.HTTPServer(('0.0.0.0', 5000), CustomHTTPRequestHandler)
-    print('Server running on port 5000')
+    server = http.server.HTTPServer(("0.0.0.0", 5000), CustomHTTPRequestHandler)
+    print("Server running on port 5000")
     server.serve_forever()
