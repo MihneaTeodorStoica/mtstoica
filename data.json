@@ -62,6 +62,8 @@
   ],
   "competitions": {
     "results": [
+      { "year": "2026", "name": "ROAI", "note": null, "result": "First Place" },
+      { "year": "2026", "name": "ONIA", "note": null, "result": "Second Place" },
       { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold" },
       { "year": "2025", "name": "ONI", "note": null, "result": "Silver" },
       { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "3rd place" }
