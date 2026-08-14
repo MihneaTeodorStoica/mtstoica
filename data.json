@@ -6,7 +6,6 @@
     "Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work."
   ],
   "currently": [
-    "Preparing for <strong>IOAI / CEOAI</strong>",
     "Building things in AI and education",
     "Getting better at machine learning through projects and competitions"
   ],
@@ -64,6 +63,7 @@
     "results": [
       { "year": "2026", "name": "ROAI", "note": null, "result": "First Place" },
       { "year": "2026", "name": "ONIA", "note": null, "result": "Second Place" },
+      { "year": "2026", "name": "IOAI", "note": null, "result": "Silver Medal" },
       { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold" },
       { "year": "2025", "name": "ONI", "note": null, "result": "Silver" },
       { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "3rd place" }
