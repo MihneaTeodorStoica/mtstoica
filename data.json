@@ -2,7 +2,7 @@
   "name": "Mihnea-Teodor Stoica",
   "tagline": "Machine learning, competitive programming, and side projects",
   "about": [
-    "I'm a high school student from <strong>Romania</strong>. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.",
+    "I'm a <strong>2026 IOAI Silver Medalist</strong> and a high school student from <strong>Romania</strong>. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.",
     "Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work."
   ],
   "currently": [
@@ -61,12 +61,12 @@
   ],
   "competitions": {
     "results": [
+      { "year": "2026", "name": "IOAI", "note": null, "result": "Silver Medal" },
       { "year": "2026", "name": "ROAI", "note": null, "result": "First Place" },
       { "year": "2026", "name": "ONIA", "note": null, "result": "Second Place" },
-      { "year": "2026", "name": "IOAI", "note": null, "result": "Silver Medal" },
-      { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold" },
-      { "year": "2025", "name": "ONI", "note": null, "result": "Silver" },
-      { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "3rd place" }
+      { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold Medal" },
+      { "year": "2025", "name": "ONI", "note": null, "result": "Silver Medal" },
+      { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "Third Place" }
     ],
     "ratings": [
       { "platform": "Codeforces", "result": "Candidate Master" },

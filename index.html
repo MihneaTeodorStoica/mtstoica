@@ -298,10 +298,22 @@
     }
 
     .competition-line .result {
-      color: #f9e2af;
+      color: #cdd6f4;
       font-weight: 600;
       font-size: 0.82rem;
       flex-shrink: 0;
+    }
+
+    .competition-line .result.gold {
+      color: #f9e2af;
+    }
+
+    .competition-line .result.silver {
+      color: #bac2de;
+    }
+
+    .competition-line .result.purple {
+      color: #cba6f7;
     }
 
     .competition-line .platform {
@@ -507,7 +519,7 @@
             html += `<span class="competition-name">${esc(c.name)}`;
             if (c.note) html += ` <em>(${esc(c.note)})</em>`;
             html += `</span>`;
-            html += `<span class="result">${esc(c.result)}</span>`;
+            html += `<span class="result ${resultTone(c.result)}">${esc(c.result)}</span>`;
             html += `</div>`;
           });
         }
@@ -517,7 +529,7 @@
             html += `<div class="competition-line">`;
             html += `<span class="competition-year"></span>`;
             html += `<span class="competition-name"><span class="platform">${esc(r.platform)}</span></span>`;
-            html += `<span class="result">${esc(r.result)}</span>`;
+            html += `<span class="result ${resultTone(r.result)}">${esc(r.result)}</span>`;
             html += `</div>`;
           });
         }
@@ -566,6 +578,13 @@
         .finally(() => {
           if (refreshButton) refreshButton.disabled = false;
         });
+    }
+
+    function resultTone(result) {
+      if (['First Place', 'Second Place', 'Third Place', 'Gold Medal', 'Gold Division'].includes(result)) return 'gold';
+      if (result === 'Silver Medal') return 'silver';
+      if (result === 'Candidate Master') return 'purple';
+      return '';
     }
 
     function esc(str) {
