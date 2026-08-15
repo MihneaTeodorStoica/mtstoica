@@ -2,8 +2,8 @@
   "name": "Mihnea-Teodor Stoica",
   "tagline": "Machine learning, competitive programming, and side projects",
   "about": [
-    "I'm a <strong>2026 IOAI Silver Medalist</strong> and a high school student from <strong>Romania</strong>. Most of my time goes into olympiads, building things, and trying to understand how systems actually work.",
-    "Lately, I've been focusing more on <strong>AI</strong> — both individually and through initiatives like clubs, events, and educational work."
+    "I'm a high school student from <strong>Romania</strong> interested in <strong>artificial intelligence</strong>, algorithms, and the systems behind the software we use. I like learning by building practical tools and solving difficult problems.",
+    "In 2026, I earned a <strong>silver medal at the International Olympiad in Artificial Intelligence</strong>. Outside competitions, I teach informatics, organize technical events, and help other students explore the field."
   ],
   "currently": [
     "Building things in AI and education",
@@ -31,7 +31,7 @@
       "role": "Founder",
       "details": [
         "Founded and led a school AI club",
-        "<span class=\"accent\">>80%</span> of members qualified for ONIA / ROAI"
+        "More than <span class=\"accent\">80%</span> of members qualified for Romania's national artificial intelligence olympiads"
       ]
     },
     {
@@ -42,7 +42,7 @@
       ]
     },
     {
-      "title": "ONIA Platform",
+      "title": "Romanian National Artificial Intelligence Olympiad Platform",
       "role": "Contributor",
       "details": [
         "Contributor and problem proposer"
@@ -61,12 +61,12 @@
   ],
   "competitions": {
     "results": [
-      { "year": "2026", "name": "IOAI", "note": null, "result": "Silver Medal" },
-      { "year": "2026", "name": "ROAI", "note": null, "result": "First Place" },
-      { "year": "2026", "name": "ONIA", "note": null, "result": "Second Place" },
-      { "year": "2025", "name": "ONIA", "note": "pre-split; now ROAI track", "result": "Gold Medal" },
-      { "year": "2025", "name": "ONI", "note": null, "result": "Silver Medal" },
-      { "year": "2025", "name": "ONIA Winter Challenge", "note": null, "result": "Third Place" }
+      { "year": "2026", "name": "International Olympiad in Artificial Intelligence", "note": null, "result": "Silver Medal" },
+      { "year": "2026", "name": "Romanian Olympiad in Artificial Intelligence", "note": null, "result": "First Place" },
+      { "year": "2026", "name": "Romanian National Artificial Intelligence Olympiad", "note": null, "result": "Second Place" },
+      { "year": "2025", "name": "Romanian National Artificial Intelligence Olympiad", "note": "before the 2026 split", "result": "Gold Medal" },
+      { "year": "2025", "name": "Romanian Olympiad in Informatics", "note": null, "result": "Silver Medal" },
+      { "year": "2025", "name": "Romanian National Artificial Intelligence Olympiad — Winter Warmup Challenge", "note": null, "result": "Third Place" }
     ],
     "ratings": [
       { "platform": "Codeforces", "result": "Candidate Master" },
@@ -74,6 +74,7 @@
     ]
   },
   "links": [
+    { "label": "Project", "url": "https://github.com/MihneaTeodorStoica/nitro-ai-judge-cli", "text": "nitro-ai-judge-cli" },
     { "label": "GitHub", "url": "https://github.com/MihneaTeodorStoica", "text": "MihneaTeodorStoica" },
     { "label": "Codeforces", "url": "https://codeforces.com/profile/MihneaTeodorStoica", "text": "MihneaTeodorStoica" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/mihnea-teodor-stoica/", "text": "mihnea-teodor-stoica" }
